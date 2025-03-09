@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Board : MonoBehaviour
+public class Board_1 : MonoBehaviour
 {
-    public List<Tile> tileList = new();
+    public List<Tile_1> tileList = new();
     public GameObject EmptyTile;
     public GameObject tile;
     public int count = 9;
@@ -22,7 +22,7 @@ public class Board : MonoBehaviour
     {
         int index = 0;
 
-        foreach(Tile tile in tileList)
+        foreach(Tile_1 tile in tileList)
         {
             if(index != tile.index)
             {
@@ -38,7 +38,7 @@ public class Board : MonoBehaviour
     {
         Debug.Log("Clear");
     }
-    public void OnClick(Tile tile)
+    public void OnClick(Tile_1 tile)
     {
         if(Vector3.Distance(tile.GetComponent<RectTransform>().localPosition, EmptyTile.GetComponent<RectTransform>().localPosition) == 260)
         {
@@ -63,7 +63,7 @@ public class Board : MonoBehaviour
         {
             GameObject go = Instantiate(this.tile, transform);
 
-            Tile tile = go.GetComponent<Tile>();
+            Tile_1 tile = go.GetComponent<Tile_1>();
 
             tile.board = this;
             tile.index = i;
@@ -101,7 +101,7 @@ public class Board : MonoBehaviour
 
         yield return new WaitForSeconds(0.02f);
 
-        foreach(Tile tile in tileList)
+        foreach(Tile_1 tile in tileList)
         {
             tile.targetTime = 0.1f;
         }

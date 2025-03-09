@@ -2,11 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
-
-public class Tile : MonoBehaviour, IPointerClickHandler
+public class Tile_1 : MonoBehaviour, IPointerClickHandler
 {
-    public Board board;
+    public Board_1 board;
     public Text text;
     [HideInInspector]
     public int index = 0;
