@@ -8,6 +8,8 @@ public class Board_2 : MonoBehaviour
     public List<bool> unClear = new();
     public Tile_2[][] tiles = new Tile_2[4][];
     public GameObject tile;
+    public int score = 0;
+    public int targetScore = 500;
 
     private void Awake()
     {
@@ -41,6 +43,11 @@ public class Board_2 : MonoBehaviour
         if((x != 0 && y == 0) || (x == 0 && y != 0))
         {
             StartCoroutine(Moving((int)x, (int)y));
+        }
+
+        if(score >= targetScore)
+        {
+            Debug.Log("Clear");
         }
     }
     private void Spawn()

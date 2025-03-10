@@ -58,6 +58,8 @@ public class Tile_2 : MonoBehaviour
     {
         number *= 2;
         addable = false;
+
+        board.score += number;
     }
     private IEnumerator Moving(Vector3 target)
     {

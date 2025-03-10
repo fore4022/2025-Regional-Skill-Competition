@@ -29,6 +29,11 @@ public class Board_3 : MonoBehaviour
             StartCoroutine(selectTile[0].Moving(vec1));
             StartCoroutine(selectTile[1].Moving(vec2));
         }
+
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            Debug.Log("Clear");
+        }
     }
     private IEnumerator Spawn()
     {
