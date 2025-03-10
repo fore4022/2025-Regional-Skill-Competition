@@ -18,22 +18,6 @@ public class Board_1 : MonoBehaviour
         EmptyTile = transform.GetChild(0).gameObject;
         StartCoroutine(TileSpawning());
     }
-    private void Update()
-    {
-        int index = 0;
-
-        foreach(Tile_1 tile in tileList)
-        {
-            if(index != tile.index)
-            {
-                return;
-            }
-
-            index++;
-        }
-
-        PuzzleClear();
-    }
     private void PuzzleClear()
     {
         Debug.Log("Clear");
