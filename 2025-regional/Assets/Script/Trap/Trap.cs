@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 public class Trap : MonoBehaviour
 {
-    public GameObject go;
+    public List<GameObject> objs;
+    public int index;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            go.SetActive(true);
+            objs[index].SetActive(true);
         }
     }
 }

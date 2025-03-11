@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
@@ -51,6 +52,26 @@ public class Player : MonoBehaviour
         else
         {
             cam.transform.SetParent(camPos1.transform);
+        }
+    }
+    public void GetDamage(float dmg)
+    {
+        health -= dmg;
+
+        Debug.Log(health);
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("gas"))
+        {
+            GetDamage(20 * Time.deltaTime);
+        }
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("arrow"))
+        {
+            GetDamage(7);
         }
     }
 }
