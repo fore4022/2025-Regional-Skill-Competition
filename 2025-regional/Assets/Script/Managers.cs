@@ -17,6 +17,8 @@ public class Managers : MonoBehaviour
             go = new GameObject { name = "@Managers" };
 
             managers =  go.AddComponent<Managers>();
+
+            DontDestroyOnLoad(go);
         }
     }
 }
