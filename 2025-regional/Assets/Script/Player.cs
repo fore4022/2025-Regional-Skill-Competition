@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class Player : MonoBehaviour
 {
     public GameObject cam;
@@ -39,7 +41,11 @@ public class Player : MonoBehaviour
             moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
         }
 
-        float turn = Input.GetAxis("Horizontal");
+        float turn = 0;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            turn = Input.GetAxis("Horizontal");
+        }
 
         transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
         controller.Move(moveDirection * Time.deltaTime);
@@ -69,6 +75,10 @@ public class Player : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("outside"))
+        {
+            SceneManager.LoadScene("Main");
+        }
         if (other.gameObject.CompareTag("arrow"))
         {
             GetDamage(7);

@@ -8,10 +8,6 @@ public class Board_3 : MonoBehaviour
     public List<Tile_3> selectTile = new();
     public GameObject tile;
 
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-    }
     private void OnEnable()
     {
         StartCoroutine(Spawn());

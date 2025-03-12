@@ -8,10 +8,6 @@ public class Board_1 : MonoBehaviour
     public GameObject tile;
     public int count = 9;
 
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-    }
     private void OnEnable()
     {
         count--;

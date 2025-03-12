@@ -5,7 +5,6 @@ using UnityEngine;
 public class Board_2 : MonoBehaviour
 {
     public List<RectTransform> nodes = new();
-    public List<bool> unClear = new();
     public Tile_2[][] tiles = new Tile_2[4][];
     public GameObject tile;
     public int score = 0;
@@ -17,8 +16,6 @@ public class Board_2 : MonoBehaviour
         {
             tiles[i] = new Tile_2[4];
         }
-
-        gameObject.SetActive(false);
     }
     private void OnEnable()
     {
@@ -30,12 +27,12 @@ public class Board_2 : MonoBehaviour
         float x = 0;
         float y = 0;
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             y = Input.GetAxisRaw("Vertical");
         }
         
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             x = Input.GetAxisRaw("Horizontal");
         }
@@ -83,8 +80,6 @@ public class Board_2 : MonoBehaviour
     }
     private IEnumerator Moving(int x, int y)
     {
-        unClear = new();
-
         foreach (Tile_2[] tiles in tiles)
         {
             foreach (Tile_2 tile in tiles)
@@ -104,22 +99,10 @@ public class Board_2 : MonoBehaviour
                 {
                     if(tile !=  null)
                     {
-                        unClear.Add(tile.OnMove(x, y));
+                        tile.OnMove(x, y);
 
                         yield return null;
                     }
-                }
-            }
-        }
-        List<Vector2Int> emptySpaces = new();
-
-        for (int i = 0; i < tiles.Length; i++)
-        {
-            for (int j = 0; j < tiles[i].Length; j++)
-            {
-                if (tiles[i][j] == null)
-                {
-                    emptySpaces.Add(new Vector2Int(i, j));
                 }
             }
         }

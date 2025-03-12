@@ -16,14 +16,14 @@ public class Tile_2 : MonoBehaviour
     {
         text.text = $"{number}";
     }
-    public bool OnMove(int x, int y)
+    public void OnMove(int x, int y)
     {
         x += this.x;
         y += this.y;
 
         if(x > 3 || x < 0 || y > 3 || y < 0)
         {
-            return false;
+            return;
         }
 
         if(board.tiles[x][y] == null)
@@ -36,8 +36,6 @@ public class Tile_2 : MonoBehaviour
             board.tiles[this.x][this.y] = this;
 
             StartCoroutine(Moving(board.nodes[x + y * 4].localPosition));
-
-            return true;
         }
         else
         {
@@ -47,12 +45,8 @@ public class Tile_2 : MonoBehaviour
 
                 board.tiles[this.x][this.y] = null;
                 Destroy(gameObject);
-
-                return true;
             }
         }
-
-        return false;
     }
     public void Add()
     {
