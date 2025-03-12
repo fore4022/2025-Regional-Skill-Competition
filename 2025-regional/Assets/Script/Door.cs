@@ -26,6 +26,7 @@ public class Door : MonoBehaviour
         {
             go.SetActive(false);
         }
+
         if(!open && !ui.activeSelf && f)
         {
             anime.SetActive(true);

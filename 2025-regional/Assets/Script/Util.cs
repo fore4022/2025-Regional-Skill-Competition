@@ -2,7 +2,7 @@ using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
-public static class Typing
+public static class Util
 {
     private static WaitForSecondsRealtime delay = new(0.02f);
 

@@ -1,12 +1,15 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager
 {
     public Player player;
     public int stageIndex = 1;
+    public GameObject result;
     public List<int> hash = new();
-
-    public int coin = 0;
+    public bool isClear;
+    public int totalCoin = 0;
+    public int addCoin = 0;
 
     public void GameStart()
     {
@@ -14,7 +17,13 @@ public class GameManager
     }
     public void GameOver(bool isClear)
     {
+        if(isClear)
+        {
+            totalCoin += addCoin;
+        }
 
+        this.isClear = isClear;
+        result.SetActive(true);
     }
     public void ReStart()
     {
@@ -24,6 +33,6 @@ public class GameManager
     {
         stageIndex = 0;
         hash = new();
-        coin = 0;
+        addCoin = 0;
     }
 }

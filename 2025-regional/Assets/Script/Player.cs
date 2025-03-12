@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("outside"))
         {
-            SceneManager.LoadScene("Main");
+            Managers.Game.GameOver(true);
         }
         if (other.gameObject.CompareTag("arrow"))
         {
