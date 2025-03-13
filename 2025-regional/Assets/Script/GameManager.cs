@@ -16,6 +16,12 @@ public class GameManager
     public GameObject status;
     public float air = 100;
 
+    public bool a1 = true;
+    public bool a2 = true;
+    public bool a3 = true;
+    public bool a4 = true;
+    public bool a5 = true;
+
     public void GameStart()
     {
         inventory = new();
