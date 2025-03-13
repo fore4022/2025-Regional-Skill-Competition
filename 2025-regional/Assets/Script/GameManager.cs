@@ -10,7 +10,7 @@ public class GameManager
     public GameObject result;
     public List<int> hash = new();
     public bool isClear;
-    public int totalCoin = 0;
+    public int totalCoin = 5000;
     public int addCoin = 0;
     public int inventorySize = 4;
     public GameObject status;
@@ -22,31 +22,30 @@ public class GameManager
     public bool a4 = true;
     public bool a5 = true;
 
-    public void GameStart()
+    public void GameStart(int a = 0)
     {
         inventory = new();
 
-        SceneManager.LoadScene($"InGame_{stageIndex}");
+        SceneManager.LoadScene($"InGame_{stageIndex - a}");
     }
     public void GameOver(bool isClear)
     {
         if(isClear)
         {
             totalCoin += addCoin;
+            stageIndex++;
+
+            if(stageIndex == 6)
+            {
+                stageIndex = 0;
+                hash = new();
+            }
         }
 
         status.SetActive(false);
         this.isClear = isClear;
-        result.SetActive(true);
-    }
-    public void ReStart()
-    {
         inventory = new();
-    }
-    public void RePlay()
-    {
-        stageIndex = 0;
-        hash = new();
         addCoin = 0;
+        result.SetActive(true);
     }
 }

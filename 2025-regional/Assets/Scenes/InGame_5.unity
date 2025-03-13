@@ -5838,6 +5838,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1731122955247772038, guid: bb77bcabe766afc44bba94df9b8008ef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731122955247772038, guid: bb77bcabe766afc44bba94df9b8008ef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2718098809551620297, guid: bb77bcabe766afc44bba94df9b8008ef, type: 3}
       propertyPath: m_Name
       value: Status
@@ -5924,6 +5932,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6196264599545346663, guid: bb77bcabe766afc44bba94df9b8008ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101860512441569138, guid: bb77bcabe766afc44bba94df9b8008ef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101860512441569138, guid: bb77bcabe766afc44bba94df9b8008ef, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

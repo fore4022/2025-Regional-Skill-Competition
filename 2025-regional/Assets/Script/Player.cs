@@ -28,6 +28,16 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if(health <= 0)
+        {
+            Managers.Game.GameOver(false);
+        }
+
+        if(air <= 0)
+        {
+            Managers.Game.GameOver(false);
+        }
+
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             anime.SetInteger("AnimationPar", 1);

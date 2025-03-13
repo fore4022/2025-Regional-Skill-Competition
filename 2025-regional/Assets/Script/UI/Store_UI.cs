@@ -6,6 +6,7 @@ public class Store_UI : MonoBehaviour
     public GameObject go;
     public GameObject store;
     public Text set;
+    public Text gold;
     public int index = 0;
     public bool open = false;
     public GameObject a1;
@@ -51,6 +52,7 @@ public class Store_UI : MonoBehaviour
         {
             go.SetActive(false);
         }
+        gold.text = $"{Managers.Game.totalCoin} G";
     }
     public IEnumerator CameraMoving()
     {
@@ -182,9 +184,12 @@ public class Store_UI : MonoBehaviour
             case 0:
                 if(Managers.Game.a1)
                 {
-                    if(Managers.Game.totalCoin >= 2000)
+                    if(Managers.Game.totalCoin >= 2000 || Input.GetKey(KeyCode.F2))
                     {
-                        Managers.Game.totalCoin -= 2000;
+                        if(!Input.GetKey(KeyCode.F2))
+                        {
+                            Managers.Game.totalCoin -= 2000;
+                        }
                         Managers.Game.a1 = false;
                         Next(0);
                     }
@@ -197,9 +202,12 @@ public class Store_UI : MonoBehaviour
             case 1:
                 if (Managers.Game.a2)
                 {
-                    if (Managers.Game.totalCoin >= 3000)
+                    if (Managers.Game.totalCoin >= 3000 || Input.GetKey(KeyCode.F2))
                     {
-                        Managers.Game.totalCoin -= 3000;
+                        if (!Input.GetKey(KeyCode.F2))
+                        {
+                            Managers.Game.totalCoin -= 3000;
+                        }
                         Managers.Game.a2 = false;
                         Next(0);
                     }
@@ -212,9 +220,12 @@ public class Store_UI : MonoBehaviour
             case 2:
                 if (Managers.Game.a3)
                 {
-                    if (Managers.Game.totalCoin >= 5000)
+                    if (Managers.Game.totalCoin >= 5000 || Input.GetKey(KeyCode.F2))
                     {
-                        Managers.Game.totalCoin -= 5000;
+                        if (!Input.GetKey(KeyCode.F2))
+                        {
+                            Managers.Game.totalCoin -= 5000;
+                        }
                         Managers.Game.a3 = false;
                         Next(0);
                     }
@@ -227,9 +238,12 @@ public class Store_UI : MonoBehaviour
             case 3:
                 if (Managers.Game.a4)
                 {
-                    if (Managers.Game.totalCoin >= 3000)
+                    if (Managers.Game.totalCoin >= 3000 || Input.GetKey(KeyCode.F2))
                     {
-                        Managers.Game.totalCoin -= 3000;
+                        if (!Input.GetKey(KeyCode.F2))
+                        {
+                            Managers.Game.totalCoin -= 3000;
+                        }
                         Managers.Game.a4 = false;
                         Next(0);
                     }
@@ -242,9 +256,12 @@ public class Store_UI : MonoBehaviour
             case 4:
                 if (Managers.Game.a5)
                 {
-                    if (Managers.Game.totalCoin >= 5000)
+                    if (Managers.Game.totalCoin >= 5000 || Input.GetKey(KeyCode.F2))
                     {
-                        Managers.Game.totalCoin -= 5000;
+                        if (!Input.GetKey(KeyCode.F2))
+                        {
+                            Managers.Game.totalCoin -= 5000;
+                        }
                         Managers.Game.a5 = false;
                         Next(0);
                     }

@@ -9,10 +9,6 @@ public class Cheat : MonoBehaviour
             Managers.Game.player.health = 100;
             Managers.Game.player.air = 100;
         }
-        else if(Input.GetKeyDown(KeyCode.F2))
-        {
-
-        }
         else if(Input.GetKeyDown(KeyCode.F3))
         {
             SceneManager.LoadScene($"InGame_{Managers.Game.stageIndex}");
