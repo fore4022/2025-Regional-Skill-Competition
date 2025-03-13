@@ -9,7 +9,6 @@ public class Valuable : MonoBehaviour
     {
         foreach (int i in Managers.Game.hash)
         {
-            Debug.Log(i);
             if (index == i)
             {
                 gameObject.SetActive(false);
@@ -18,7 +17,6 @@ public class Valuable : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Managers.Game.hash.Count);
         if(Vector3.Distance(transform.position, Managers.Game.player.gameObject.transform.position) <= 2)
         {
             go.gameObject.SetActive(true);

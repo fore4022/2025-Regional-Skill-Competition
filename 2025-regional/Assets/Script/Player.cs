@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class Player : MonoBehaviour
 {
     public GameObject cam;
@@ -24,6 +21,10 @@ public class Player : MonoBehaviour
 
         anime = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+    }
+    private void Start()
+    {
+        air = Managers.Game.air - (Managers.Game.stageIndex - 1) * 10;
     }
     private void Update()
     {
@@ -71,6 +72,11 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("gas"))
         {
             GetDamage(20 * Time.deltaTime);
+        }
+
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            GetDamage(7 * Time.deltaTime);
         }
     }
     public void OnTriggerEnter(Collider other)

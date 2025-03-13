@@ -13,6 +13,8 @@ public class GameManager
     public int totalCoin = 0;
     public int addCoin = 0;
     public int inventorySize = 4;
+    public GameObject status;
+    public float air = 100;
 
     public void GameStart()
     {
@@ -27,6 +29,7 @@ public class GameManager
             totalCoin += addCoin;
         }
 
+        status.SetActive(false);
         this.isClear = isClear;
         result.SetActive(true);
     }
