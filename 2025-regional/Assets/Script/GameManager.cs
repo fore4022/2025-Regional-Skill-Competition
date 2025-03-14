@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager
 {
+    public List<(string name, int score)> rank = new();
     public Inventory inventory = new();
 
     public Player player;

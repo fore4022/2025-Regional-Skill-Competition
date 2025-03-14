@@ -17,7 +17,8 @@ public class Store_UI : MonoBehaviour
 
     private void Update()
     {
-        if(open)
+        gold.text = $"{Managers.Game.totalCoin} G";
+        if (open)
         {
             if(Input.GetKey(KeyCode.Escape))
             {
@@ -52,7 +53,6 @@ public class Store_UI : MonoBehaviour
         {
             go.SetActive(false);
         }
-        gold.text = $"{Managers.Game.totalCoin} G";
     }
     public IEnumerator CameraMoving()
     {
