@@ -11,6 +11,7 @@ public class Cheat : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.F3))
         {
+            Managers.Game.addCoin = 0;
             SceneManager.LoadScene($"InGame_{Managers.Game.stageIndex}");
         }
         else if (Input.GetKeyDown(KeyCode.F4))
@@ -20,6 +21,7 @@ public class Cheat : MonoBehaviour
                 Managers.Game.stageIndex++;
             }
 
+            Managers.Game.addCoin = 0;
             SceneManager.LoadScene($"InGame_{Managers.Game.stageIndex}");
         }
         else if (Input.GetKeyDown(KeyCode.F5))

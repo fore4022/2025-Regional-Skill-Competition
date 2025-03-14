@@ -26,9 +26,16 @@ public class Valuable : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.F))
             {
-                Managers.Game.inventory.Add(id);
-                Managers.Game.hash.Add(index);
-                gameObject.SetActive(false);
+                if(Managers.Game.inventory.inventory.Count < Managers.Game.inventorySize)
+                {
+                    Managers.Game.inventory.Add(id);
+                    Managers.Game.hash.Add(index);
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    Managers.Game.Log("°¡¹æÀÌ °¡µæ Ã¡½À´Ï´Ù.");
+                }
             }
         }
         else

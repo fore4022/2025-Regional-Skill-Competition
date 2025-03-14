@@ -10,6 +10,8 @@ public class Inventory_UI : MonoBehaviour
 
     public void Start()
     {
+        Managers.Game.inven = this;
+
         for(int i = 0; i < Managers.Game.inventorySize; i++)
         {
             GameObject a = Instantiate(go, transform);
@@ -18,8 +20,9 @@ public class Inventory_UI : MonoBehaviour
             img.sprite = null;
             imgs.Add(img);
         }
+        UpdateInven();
     }
-    private void Update()
+    public void UpdateInven()
     {
         int i = 0;
 
@@ -35,22 +38,46 @@ public class Inventory_UI : MonoBehaviour
             switch(a[i])
             {
                 case "a":
-                    img.sprite = sprites[0];
+                    if(img.sprite != sprites[0])
+                    {
+                        img.sprite = sprites[0];
+                        Managers.Game.Log("±ÝÈ­ ÀÚ·ç È×µæ!");
+                    }
                     break;
                 case "b":
-                    img.sprite = sprites[1];
+                    if (img.sprite != sprites[1])
+                    {
+                        img.sprite = sprites[1];
+                        Managers.Game.Log("º¸¹° »óÀÚ È×µæ!");
+                    }
                     break;
                 case "c":
-                    img.sprite = sprites[2];
+                    if (img.sprite != sprites[2])
+                    {
+                        img.sprite = sprites[2];
+                        Managers.Game.Log("Å©¸®½ºÅ» »óÀÚ È×µæ!");
+                    }
                     break;
                 case "d":
-                    img.sprite = sprites[3];
+                    if (img.sprite != sprites[3])
+                    {
+                        img.sprite = sprites[3];
+                        Managers.Game.Log("È²±Ý Åõ±¸ È×µæ!");
+                    }
                     break;
                 case "e":
-                    img.sprite = sprites[4];
+                    if (img.sprite != sprites[4])
+                    {
+                        img.sprite = sprites[4];
+                        Managers.Game.Log("È²±Ý ¹æÆÐ È×µæ!");
+                    }
                     break;
                 case "f":
-                    img.sprite = sprites[5];
+                    if (img.sprite != sprites[5])
+                    {
+                        img.sprite = sprites[5];
+                        Managers.Game.Log("È²±Ý ·¹±ë½º È×µæ!");
+                    }
                     break;
             }
 

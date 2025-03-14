@@ -14,7 +14,12 @@ public class Store_UI : MonoBehaviour
     public GameObject a3;
     public GameObject a4;
     public GameObject a5;
+    public GameObject asd;
 
+    public void Awake()
+    {
+        Managers.Game.log = asd;
+    }
     private void Update()
     {
         gold.text = $"{Managers.Game.totalCoin} G";
@@ -191,11 +196,18 @@ public class Store_UI : MonoBehaviour
                             Managers.Game.totalCoin -= 2000;
                         }
                         Managers.Game.a1 = false;
+                        Managers.Game.Log("구매 하였습니다.");
                         Next(0);
+                    }
+                    else
+                    {
+                        Managers.Game.Log("코인이 부족합니다.");
                     }
                 }
                 else
                 {
+                    Managers.Game.Log("장창 하였습니다.");
+
                     Managers.Game.air = 115;
                 }
                 break;
@@ -209,11 +221,17 @@ public class Store_UI : MonoBehaviour
                             Managers.Game.totalCoin -= 3000;
                         }
                         Managers.Game.a2 = false;
+                        Managers.Game.Log("구매 하였습니다.");
                         Next(0);
+                    }
+                    else
+                    {
+                        Managers.Game.Log("코인이 부족합니다.");
                     }
                 }
                 else
                 {
+                    Managers.Game.Log("장창 하였습니다.");
                     Managers.Game.air = 125;
                 }
                 break;
@@ -227,11 +245,17 @@ public class Store_UI : MonoBehaviour
                             Managers.Game.totalCoin -= 5000;
                         }
                         Managers.Game.a3 = false;
+                        Managers.Game.Log("구매 하였습니다.");
                         Next(0);
+                    }
+                    else
+                    {
+                        Managers.Game.Log("코인이 부족합니다.");
                     }
                 }
                 else
                 {
+                    Managers.Game.Log("장창 하였습니다.");
                     Managers.Game.air = 150;
                 }
                 break;
@@ -245,11 +269,17 @@ public class Store_UI : MonoBehaviour
                             Managers.Game.totalCoin -= 3000;
                         }
                         Managers.Game.a4 = false;
+                        Managers.Game.Log("구매 하였습니다.");
                         Next(0);
+                    }
+                    else
+                    {
+                        Managers.Game.Log("코인이 부족합니다.");
                     }
                 }
                 else
                 {
+                    Managers.Game.Log("장창 하였습니다.");
                     Managers.Game.inventorySize = 6;
                 }
                 break;
@@ -263,11 +293,17 @@ public class Store_UI : MonoBehaviour
                             Managers.Game.totalCoin -= 5000;
                         }
                         Managers.Game.a5 = false;
+                        Managers.Game.Log("구매 하였습니다.");
                         Next(0);
+                    }
+                    else
+                    {
+                        Managers.Game.Log("코인이 부족합니다.");
                     }
                 }
                 else
                 {
+                    Managers.Game.Log("장창 하였습니다.");
                     Managers.Game.inventorySize = 8;
                 }
                 break;
