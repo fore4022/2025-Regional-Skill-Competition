@@ -14,6 +14,8 @@ public class Valuable : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+
+        Managers.Game.val.Add(this);
     }
     private void Update()
     {
@@ -29,7 +31,17 @@ public class Valuable : MonoBehaviour
                 if(Managers.Game.inventory.inventory.Count < Managers.Game.inventorySize)
                 {
                     Managers.Game.inventory.Add(id);
-                    Managers.Game.hash.Add(index);
+
+                    if(Managers.Game.inven.isItem)
+                    {
+                        Managers.Game.hash.Add(index);
+                    }
+                    else
+                    {
+                        Managers.Game.hash.Add(Random.Range(0, 12));
+                    }
+
+                    Managers.Game.val.Remove(this);
                     gameObject.SetActive(false);
                 }
                 else

@@ -58,6 +58,10 @@ public class Help_UI : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
 
+        imgs[4].SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+
         ui.SetActive(false);
     }
 }

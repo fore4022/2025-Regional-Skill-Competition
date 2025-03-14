@@ -6,6 +6,7 @@ public class GameManager
     public List<(string name, int score)> rank = new();
     public Inventory inventory = new();
 
+    public List<Valuable> val = new();
     public GameObject log;
     public Player player;
     public int stageIndex = 5;

@@ -70,12 +70,24 @@ public class Player : MonoBehaviour
         {
             cam.transform.SetParent(camPos1.transform);
         }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(Managers.Game.inven.isItem)
+            {
+                Managers.Game.Log("아이템 사용");
+
+                //Managers.Game.
+            }
+            else
+            {
+                Managers.Game.Log("아이템이 없습니다.");
+            }
+        }
     }
     public void GetDamage(float dmg)
     {
         health -= dmg;
-
-        Debug.Log(health);
     }
     public void OnTriggerStay(Collider other)
     {

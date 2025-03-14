@@ -7,6 +7,8 @@ public class Inventory_UI : MonoBehaviour
     public List<Image> imgs = new();
     public List<Sprite> sprites;
     public GameObject go;
+    public bool isItem = false;
+    public int itemIndex = 0;
 
     public void Start()
     {
@@ -77,6 +79,54 @@ public class Inventory_UI : MonoBehaviour
                     {
                         img.sprite = sprites[5];
                         Managers.Game.Log("È²±Ý ·¹±ë½º È×µæ!");
+                    }
+                    break;
+                case "UI_Icon_Apple"://hp
+                    if (img.sprite != sprites[6])
+                    {
+                        isItem = true;
+                        img.sprite = sprites[6];
+                        Managers.Game.Log("'Ã¼·Â È¸º¹' È×µæ!");
+                    }
+                    break;
+                case "UI_Icon_Potion_3"://air
+                    if (img.sprite != sprites[7])
+                    {
+                        isItem = true;
+                        img.sprite = sprites[7];
+                        Managers.Game.Log("'»ê¼Ò È¸º¹' È×µæ!");
+                    }
+                    break;
+                case "UI_Icon_Clover_Leaf"://treasure
+                    if (img.sprite != sprites[8])
+                    {
+                        isItem = true;
+                        img.sprite = sprites[7];
+                        Managers.Game.Log("'º¸¹°°ú Çà¿î' È×µæ!");
+                    }
+                    break;
+                case "UI_Icon_Potion_2"://speed s
+                    if (img.sprite != sprites[9])
+                    {
+                        isItem = true;
+                        img.sprite = sprites[7];
+                        Managers.Game.Log("'¼º±ÞÇÔ' È×µæ!");
+                    }
+                    break;
+                case "UI_Icon_Potion_1"://speed l
+                    if (img.sprite != sprites[10])
+                    {
+                        isItem = true;
+                        img.sprite = sprites[7];
+                        Managers.Game.Log("'½Å¼ÓÇÔ' È×µæ!");
+                    }
+                    break;
+                case "UI_Icon_Journal"://non enemy
+                    if (img.sprite != sprites[11])
+                    {
+                        isItem = true;
+                        img.sprite = sprites[7];
+                        Managers.Game.Log("'À§Àå Àü·«' È×µæ!");
                     }
                     break;
             }

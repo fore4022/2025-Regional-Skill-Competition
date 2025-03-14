@@ -190,7 +190,7 @@ RectTransform:
   - {fileID: 6016841115073236751}
   - {fileID: 2566757157071768130}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -871,6 +871,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bac243d3539a6d84e90242f9b2793ba2, type: 3}
   - {fileID: 21300000, guid: 00f7f05233b10ef4ea3cbd80243697e8, type: 3}
   - {fileID: 21300000, guid: 4e4ff11e09b704c4db29ef3f39b21bcc, type: 3}
+  - {fileID: 21300000, guid: adaac68d8e5d693499597113889d11d3, type: 3}
+  - {fileID: 21300000, guid: 5aabaadcd5e8dce4296119d032114c28, type: 3}
+  - {fileID: 21300000, guid: 7524ab7a7f453474dbfc0e05e8b92539, type: 3}
+  - {fileID: 21300000, guid: eca1954e3092f6c468c69c10d19a6413, type: 3}
+  - {fileID: 21300000, guid: 720936d3887635548b5eca76a7978798, type: 3}
+  - {fileID: 21300000, guid: 686161071ef7775448055f798bea6d70, type: 3}
   go: {fileID: 8707754834112975349, guid: 00fd54a4016f15e4db288c65f5f99d23, type: 3}
 --- !u!1 &7797908382120275634
 GameObject:
