@@ -14,7 +14,11 @@ public class Board_3 : MonoBehaviour
     }
     private void Update()
     {
-        if(selectTile.Count == 2)
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
+        if (selectTile.Count == 2)
         {
             Vector3 vec1 = selectTile[1].rect.localPosition;
             Vector3 vec2 = selectTile[0].rect.localPosition;

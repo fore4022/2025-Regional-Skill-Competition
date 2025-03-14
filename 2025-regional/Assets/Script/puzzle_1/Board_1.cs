@@ -18,6 +18,13 @@ public class Board_1 : MonoBehaviour
     {
         Debug.Log("Clear");
     }
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
+    }
     public void OnClick(Tile_1 tile)
     {
         if(Vector3.Distance(tile.GetComponent<RectTransform>().localPosition, EmptyTile.GetComponent<RectTransform>().localPosition) == 260)

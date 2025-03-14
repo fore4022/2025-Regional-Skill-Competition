@@ -33,8 +33,8 @@ public class Result_UI : MonoBehaviour
             StartCoroutine(Util.TypeEffecting(result, "Fail"));
         }
 
-        timer.text = $"";
-        coin.text = $"+ {Managers.Game.addCoin} G";
+        timer.text = $"00 : {(int)(Managers.Game.player.totalTime / 60):D2} : {(int)(Managers.Game.player.totalTime % 60):D2}";
+        coin.text = $"+ {Managers.Game.addCoin:N0} G";
 
         Managers.Game.addCoin = 0;
 

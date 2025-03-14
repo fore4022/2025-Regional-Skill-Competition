@@ -14,10 +14,12 @@ public class Player : MonoBehaviour
     public float gravity = 20f;
     public float health = 100;
     public float air = 100;
+    public float totalTime = 0;
 
     private void Awake()
     {
         Managers.Game.player = this;
+        Managers.Game.isloop = true;
 
         anime = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
@@ -28,6 +30,11 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if(Managers.Game.isloop)
+        {
+            totalTime += Time.deltaTime; 
+        }
+
         if(health <= 0)
         {
             Managers.Game.GameOver(false);

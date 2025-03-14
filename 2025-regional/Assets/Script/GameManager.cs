@@ -19,6 +19,7 @@ public class GameManager
     public GameObject status;
     public float air = 100;
     public Inventory_UI inven;
+    public bool isloop = true;
 
     public bool a1 = true;
     public bool a2 = true;
@@ -34,6 +35,8 @@ public class GameManager
     }
     public void GameOver(bool isClear)
     {
+
+        isloop = false;
         if(isClear)
         {
             totalCoin += addCoin;
@@ -49,7 +52,6 @@ public class GameManager
         status.SetActive(false);
         this.isClear = isClear;
         inventory = new();
-        addCoin = 0;
         result.SetActive(true);
     }
     public void Log(string text)

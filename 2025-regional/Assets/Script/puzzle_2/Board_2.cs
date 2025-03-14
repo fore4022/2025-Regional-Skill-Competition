@@ -24,6 +24,10 @@ public class Board_2 : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
         float x = 0;
         float y = 0;
 
