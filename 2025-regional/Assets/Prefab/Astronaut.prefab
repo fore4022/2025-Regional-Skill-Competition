@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 537021186039790474}
   camPos1: {fileID: 3709486347666914823}
-  camPos2: {fileID: 3174279211936328444}
+  camPos2: {fileID: 1955221477327121967}
   speed: 7
   turnSpeed: 150
   gravity: 20

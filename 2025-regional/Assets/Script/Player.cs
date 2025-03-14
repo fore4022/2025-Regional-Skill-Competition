@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
         moveDirection.y -= gravity * Time.deltaTime;
 
-        if (air < 10)
+        if (air < 10 || health < 10)
         {
             cam.transform.SetParent(camPos2.transform);
         }
