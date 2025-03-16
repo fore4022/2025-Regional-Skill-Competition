@@ -12,7 +12,7 @@ public class Monster : MonoBehaviour
     }
     void Update()
     {
-        if (Vector3.Distance(transform.position, Managers.Game.player.gameObject.transform.position) < 1.4f)
+        if (Vector3.Distance(transform.position, Managers.Game.player.gameObject.transform.position) < 1.4f && !Managers.Game.player.hidee)
         {
             transform.LookAt(Managers.Game.player.gameObject.transform);
 
