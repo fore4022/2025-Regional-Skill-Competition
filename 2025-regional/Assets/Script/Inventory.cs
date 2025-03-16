@@ -1,19 +1,14 @@
 using System.Collections.Generic;
-using System.Linq;
 public class Inventory
 {
-    public Dictionary<string, int> inventory = new();
-
-    public void Add(string id)
+    public List<int> aaa = new();
+    public void Add(int i)
     {
-        List<int> a = inventory.Values.ToList();
-
-        if(a.Count >= 6)
+        if(aaa.Count >= Managers.Game.inventorySize)
         {
             return;
         }
-
-        inventory.Add(id, 1);
+        aaa.Add(i);
         Managers.Game.inven.UpdateInven();
     }
 }

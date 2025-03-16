@@ -878,6 +878,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 720936d3887635548b5eca76a7978798, type: 3}
   - {fileID: 21300000, guid: 686161071ef7775448055f798bea6d70, type: 3}
   go: {fileID: 8707754834112975349, guid: 00fd54a4016f15e4db288c65f5f99d23, type: 3}
+  isItem: 0
+  itemIndex: 0
 --- !u!1 &7797908382120275634
 GameObject:
   m_ObjectHideFlags: 0

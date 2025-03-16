@@ -2,7 +2,8 @@ using UnityEngine;
 public class Valuable : MonoBehaviour
 {
     public GameObject go;
-    public string id;
+    public GameObject effect;
+    public int i;
 
     public int index;
     private void Awake()
@@ -28,18 +29,24 @@ public class Valuable : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.F))
             {
-                if(Managers.Game.inventory.inventory.Count < Managers.Game.inventorySize)
+                if(Managers.Game.inventory.aaa.Count < Managers.Game.inventorySize)
                 {
-                    Managers.Game.inventory.Add(id);
                     Managers.Game.hash.Add(index);
-                    //if(Managers.Game.inven.isItem)
-                    //{
-                    //    Managers.Game.hash.Add(index);
-                    //}
-                    //else
-                    //{
-                    //    Managers.Game.hash.Add(Random.Range(0, 12));
-                    //}
+                    if (Managers.Game.inven.isItem)
+                    {
+                        Managers.Game.inventory.Add(i);
+                    }
+                    else
+                    {
+                        if(Random.Range(0, 2) == 1)
+                        {
+                            Managers.Game.inventory.Add(i);
+                        }
+                        else
+                        { 
+                            Managers.Game.inventory.Add(Random.Range(6, 12));
+                        }
+                    }
 
                     Managers.Game.val.Remove(this);
                     gameObject.SetActive(false);

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
@@ -14,7 +15,15 @@ public class Player : MonoBehaviour
     public float gravity = 20f;
     public float health = 100;
     public float air = 100;
+    public bool hidee = false;
     public float totalTime = 0;
+
+    public GameObject heal;
+    public GameObject airO;
+    public GameObject luck;
+    public GameObject speedS;
+    public GameObject speedL;
+    public GameObject hide;
 
     private void Awake()
     {
@@ -84,7 +93,36 @@ public class Player : MonoBehaviour
             {
                 Managers.Game.Log("아이템 사용");
 
-                //Managers.Game.
+                switch(Managers.Game.inven.itemIndex)
+                {
+                    case 6:
+                        StartCoroutine(Heal());
+                        health = Mathf.Min(100, health + 10);
+                        break;
+                    case 7:
+                        StartCoroutine(Air());
+                        air = Mathf.Min(Managers.Game.air, air + 25);
+                        break;
+                    case 8:
+                        StartCoroutine(Luck());
+                        int aa = Random.Range(0, Managers.Game.val.Count);
+                        Managers.Game.val[aa].effect.SetActive(true);
+                        break;
+                    case 9:
+                        StartCoroutine(SpeedS());
+                        break;
+                    case 10:
+                        StartCoroutine(SpeedL());
+                        break;
+                    case 11:
+                        hidee = true;
+
+                        StartCoroutine(Hide());
+                        break;
+                }
+
+                Managers.Game.inventory.aaa.Remove(Managers.Game.inven.itemIndex);
+                Managers.Game.inven.UpdateInven();
             }
             else
             {
@@ -105,7 +143,11 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.CompareTag("enemy"))
         {
-            GetDamage(7 * Time.deltaTime);
+            if(!hidee)
+            {
+
+                GetDamage(7 * Time.deltaTime);
+            }
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -118,5 +160,49 @@ public class Player : MonoBehaviour
         {
             GetDamage(7);
         }
+    }
+    private IEnumerator Heal()
+    {
+        heal.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        heal.SetActive(false);
+    }
+    private IEnumerator Air()
+    {
+        airO.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        airO.SetActive(false);
+    }
+    private IEnumerator Luck()
+    {
+        luck.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        luck.SetActive(false);
+    }
+    private IEnumerator Hide()
+    {
+        hide.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        hide.SetActive(false);
+    }
+    private IEnumerator SpeedS()
+    {
+        speedS.SetActive(true);
+        speed += 2;
+        yield return new WaitForSeconds(5);
+        speed -= 2;
+        speedS.SetActive(false);
+    }
+    private IEnumerator SpeedL()
+    {
+        speedL.SetActive(true);
+        speed += 3.5f;
+        yield return new WaitForSeconds(8);
+        speed -= 3.5f;
+        speedL.SetActive(false);
     }
 }
