@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class T2 : MonoBehaviour
