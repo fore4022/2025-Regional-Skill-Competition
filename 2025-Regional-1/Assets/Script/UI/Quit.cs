@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Quit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int index = 0;
+    public GameObject go;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) < 2)
+        {
+            go.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                index++;
+
+                if(index == 2)
+                {
+                    Application.Quit();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+            }
+        }
     }
 }

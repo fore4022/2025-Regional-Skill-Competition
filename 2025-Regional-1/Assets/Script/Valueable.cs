@@ -11,6 +11,11 @@ public class Valueable : MonoBehaviour
         if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) < 2)
         {
             go.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                //Managers.Game.Log()
+            }
         }
     }
 }

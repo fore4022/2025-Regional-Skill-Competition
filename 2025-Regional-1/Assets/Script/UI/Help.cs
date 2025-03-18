@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Help : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject go;
+    public GameObject ui;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) < 2)
+        {
+            go.SetActive(true);
+
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                ui.SetActive(true);
+            }
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                ui.SetActive(false);
+            }
+        }
     }
 }
