@@ -1,3 +1,4 @@
+using System.Timers;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,13 +11,33 @@ public class Player : MonoBehaviour
     public Transform ne;
     public GameObject log;
 
+    public Transform cam1;
+    public Transform cam2;
+
+    public float health = 100;
+    public float air;
+
     private void Start()
     {
         Managers.Game.player = this;
         Managers.Game.log = log;
+        Managers.Game.GameStart();
+
+        air = Managers.Game.air;
     }
     public void Update()
     {
+        air -= Time.deltaTime;
+        
+        if(health <= 10 || air <= 10)
+        {
+            Camera.main.transform.SetParent(cam2);
+        }
+        else
+        {
+            Camera.main.transform.SetParent(cam1);
+        }
+
         float y = 0;
         float x = 0;
 
@@ -43,6 +64,13 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             Managers.Game.Log("아이템이 없습니다.");
+        }
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Monster"))
+        {
+            health -= 8 * Time.deltaTime;
         }
     }
 }
