@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,11 +16,11 @@ public class Status_UI : MonoBehaviour
         {
             gold.text = $"+ {Managers.Game.addCoin:N0}G";
         }
-        else if (index == 0)
+        else if (index == 1)
         {
             h.value = Managers.Game.player.health / 100;
         }
-        else if (index == 0)
+        else if (index == 2)
         {
             a.value = Managers.Game.player.air / Managers.Game.air;
         }

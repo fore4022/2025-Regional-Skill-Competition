@@ -24121,11 +24121,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   turnSpeed: 300
+  inGame: 0
   controller: {fileID: 3074683120909741356}
   anime: {fileID: 7029355422695669833}
   de: {fileID: 5102311066104171721}
   ne: {fileID: 6948011007345951890}
   log: {fileID: 1727102590890773169, guid: 15cf34ab1a8475942bbbc67f778e3245, type: 3}
+  cam1: {fileID: 0}
+  cam2: {fileID: 0}
+  health: 100
+  air: 0
 --- !u!1 &7563816773648589741
 GameObject:
   m_ObjectHideFlags: 0

@@ -165,10 +165,10 @@ public class Shop : MonoBehaviour
                     Managers.Game.air = 150;
                     break;
                 case 3:
-
+                    Managers.Game.backSize = 6;
                     break;
                 case 4:
-
+                    Managers.Game.backSize = 8;
                     break;
             }
             Managers.Game.Log("장착되었습니다.");
