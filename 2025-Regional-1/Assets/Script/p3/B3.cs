@@ -14,6 +14,13 @@ public class B3 : MonoBehaviour
     {
         StartCoroutine(Setting());
     }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            transform.parent.parent.gameObject.SetActive(false);
+        }
+    }
     public void Change()
     {
         Vector3 ve1 = sel1.rec.localPosition;

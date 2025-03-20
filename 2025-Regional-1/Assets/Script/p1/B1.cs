@@ -15,6 +15,13 @@ public class B1 : MonoBehaviour
         cnt--;
         StartCoroutine(Spawning());
     }
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            transform.parent.parent.gameObject.SetActive(false);
+        }
+    }
     public void OnClick(T1 t)
     {
         if (Vector3.Distance(t.rect.localPosition, empty.localPosition) == 270)

@@ -1,18 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float d =0;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject tar1;
+    public GameObject tar2;
+    public Animator anime;
+
+    public bool a = true;
+
+    public void Update()
     {
-        
+        if(d > 2)
+        {
+            Vector3 direction = (Managers.Game.player.transform.position - transform.position).normalized;
+
+            transform.LookAt(Managers.Game.player.transform);
+            transform.Rotate(0, 180, 0);
+
+            transform.position -= direction * 3 * Time.deltaTime;
+            return;
+        }
+
+        if(Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) < 1.4f && !Managers.Game.player.hidee)
+        {
+            transform.LookAt(Managers.Game.player.gameObject.transform);
+
+            anime.Play("Attack");
+
+            return;
+        }
+        else
+        {
+            anime.Play("Walk");
+        }
+
+        if (!a)
+        {
+            Vector3 direction = (tar1.transform.position - transform.position).normalized;
+
+            transform.LookAt(tar1.transform);
+
+            transform.position += direction * 5 * Time.deltaTime;
+            if (!(Vector3.Distance(tar1.transform.position, transform.position) > 0.1))
+            {
+                a = !a;
+            }
+        }
+        if (a)
+        {
+            Vector3 direction = (tar2.transform.position - transform.position).normalized;
+
+            transform.LookAt(tar2.transform);
+
+            transform.position += direction * 5 * Time.deltaTime;
+            if (!(Vector3.Distance(tar2.transform.position, transform.position) >0.1))
+            {
+                a = !a;
+            }
+        }
     }
 }

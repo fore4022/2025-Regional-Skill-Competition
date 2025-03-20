@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - fire
+  - gas
+  - arrow
   layers:
   - Default
   - TransparentFX

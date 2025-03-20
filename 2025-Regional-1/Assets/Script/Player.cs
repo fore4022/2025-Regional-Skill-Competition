@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool hidee = false;
     public GameObject heal;
     public GameObject aair;
     public GameObject luck;
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject speedL;
     public GameObject hide;
 
+    public GameObject particle;
     public float speed = 7;
     public float turnSpeed = 300;
     public bool inGame = true;
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
 
     public CapsuleCollider cap;
 
-    private void Start()
+    private void Awake()
     {
         cap = GetComponentInChildren<CapsuleCollider>();
 
@@ -57,6 +59,15 @@ public class Player : MonoBehaviour
         {
 
             x = Input.GetAxisRaw("Horizontal");
+        }
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+
+            particle.SetActive(true);
+        }
+        else
+        {
+            particle.SetActive(false);
         }
 
         Vector3 direction = transform.forward * speed * Time.deltaTime * y;
@@ -90,4 +101,39 @@ public class Player : MonoBehaviour
             health -= 8 * Time.deltaTime;
         }
     }
+    public void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("Monster"))
+        {
+            if(other.gameObject.TryGetComponent<Monster>(out Monster mon))
+            {
+                if(particle.activeSelf)
+                {
+                    mon.d += Time.deltaTime;
+                }
+
+                health -= 8 * Time.deltaTime;
+            }
+            else if(other.gameObject.TryGetComponent<Monster_F>(out Monster_F monn))
+            {
+                if(particle.activeSelf)
+                {
+                    monn.d += Time.deltaTime;
+                }
+
+                health -= 8 * Time.deltaTime;
+            }
+        }
+        if (other.CompareTag("fire"))
+        {
+            Managers.Game.player.health -= 10 * Time.deltaTime;
+        }
+
+        if (other.CompareTag("gas"))
+        {
+            Managers.Game.player.health -= 10 * Time.deltaTime;
+        }
+    }
+
+
 }

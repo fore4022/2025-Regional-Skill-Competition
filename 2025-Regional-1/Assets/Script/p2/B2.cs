@@ -20,6 +20,10 @@ public class B2 : MonoBehaviour
     }
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            transform.parent.parent.gameObject.SetActive(false);
+        }
         float x = 0;
         float y = 0;
 

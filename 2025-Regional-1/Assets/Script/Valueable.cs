@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Valueable : MonoBehaviour
 {
+    public MeshRenderer render;
     public GameObject tra;
     public bool trap = false;
     public int good;
     public GameObject go;
     public GameObject particle;
     public int index;
-    public bool aaa = false;
 
     public void Start()
     {
@@ -24,10 +24,6 @@ public class Valueable : MonoBehaviour
     }
     public void Update()
     {
-        if(aaa)
-        {
-            return;
-        }
 
         if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) < 2)
         {
@@ -40,8 +36,12 @@ public class Valueable : MonoBehaviour
                 if(trap)
                 {
                     tra.gameObject.SetActive(true);
+                    particle.SetActive(false);
 
+                    gameObject.GetComponent<MeshRenderer>().enabled = false;
                     Managers.Game.player.health -= 15;
+
+                    render.enabled = false;
 
                     return;
                 }
@@ -52,9 +52,7 @@ public class Valueable : MonoBehaviour
                     Managers.Game.inven.Add(good);
 
                     gameObject.SetActive(false);
-
-                    Debug.Log("a");
-                    aaa = true;
+                    particle.SetActive(false);
                 }
                 else
                 {
