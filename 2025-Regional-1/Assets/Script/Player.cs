@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
 
     public CapsuleCollider cap;
 
+    public float totalTime = 0;
+
     private void Awake()
     {
         cap = GetComponentInChildren<CapsuleCollider>();
@@ -41,7 +43,23 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-        
+        if(Managers.Game.clearUI != null)
+        {
+            if (!Managers.Game.clearUI.activeSelf)
+            {
+                totalTime += Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+
+                particle.SetActive(true);
+            }
+            else
+            {
+                particle.SetActive(false);
+            }
+        }
+
         float y = 0;
         float x = 0;
 
@@ -60,15 +78,6 @@ public class Player : MonoBehaviour
 
             x = Input.GetAxisRaw("Horizontal");
         }
-        if(Input.GetKey(KeyCode.Mouse0))
-        {
-
-            particle.SetActive(true);
-        }
-        else
-        {
-            particle.SetActive(false);
-        }
 
         Vector3 direction = transform.forward * speed * Time.deltaTime * y;
         controller.Move(direction);
@@ -77,10 +86,6 @@ public class Player : MonoBehaviour
         if(inGame)
         {
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Managers.Game.Log("아이템이 없습니다.");
-            }
             air -= Time.deltaTime;
 
             if (health <= 10 || air <= 10)

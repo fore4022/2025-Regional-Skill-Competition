@@ -15,6 +15,10 @@ public class GameManager
     public int addCoin = 0;
     public int backSize = 4;
 
+    public GameObject clearUI;
+
+    public bool clear;
+
     public Inventory inven = new();
 
     public GameObject before;
@@ -27,6 +31,7 @@ public class GameManager
 
     public void GameStart()
     {
+        clear = false;
         addCoin = 0;
         val = new();
         inven = new();

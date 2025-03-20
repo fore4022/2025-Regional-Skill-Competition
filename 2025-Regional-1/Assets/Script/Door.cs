@@ -5,9 +5,9 @@ public class Door : MonoBehaviour
 {
     public GameObject go;
     public GameObject open;
+    public GameObject doo;
     public GameObject ui;
     public bool o = false;
-    public bool c = false;
 
     public void Start()
     {
@@ -15,31 +15,12 @@ public class Door : MonoBehaviour
     }
     public void Update()
     {
-        if(o)
+        if(o && !ui.activeSelf)
         {
-            if(!ui.activeSelf)
-            {
-                c = true;
-            }
-            else
-            {
-
-                return;
-            }
-        }
-
-        if(c)
-        {
-            if(Vector3.Distance(open.transform.position, transform.position) < 0.1)
-            {
-                return;
-            }
-
-            Vector3 vec = (open.transform.position - transform.position).normalized;
-
-            transform.position += vec;
-
-            return;
+            doo.SetActive(true);
+            gameObject.SetActive(false);
+            Managers.Game.clearUI.SetActive(true);
+            Managers.Game.clear = true;
         }
 
         if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) < 2)
