@@ -47,25 +47,6 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-*.png
-*.meta
-*.svg
-*.fbx
-*.shader
-*.mat
-*.txt
-*.ogg
-*.url
-*.ttf
-*.swf
-*.xml
-*.asset
-*.prefab
-*.pdf
-*.exr
-*.lighting
-*.unity
-*.tga
 
 # Unity3D generated meta files
 *.pidb.meta
