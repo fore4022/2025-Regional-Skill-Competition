@@ -15,6 +15,8 @@ public class GameManager
     public int air = 100;
     public List<int> hash = new();
 
+    public GameObject inter;
+
     public int stageIndex = 1;
     public int currentIndex;
 
@@ -22,13 +24,20 @@ public class GameManager
 
     public List<bool> bbb = new List<bool>() { false, false, false, false, false };
 
+    public List<int> inven = new();
+    public List<Valuable> vals = new();
+
     public void GameStart(int i)
     {
         currentIndex = i;
         SceneManager.LoadScene($"InGame_{i}");
+        vals = new();
+        inven = new();
     }
     public void GameOver(bool isClear)
     {
+        inter.gameObject.SetActive(false);
+
         if(isClear)
         {
             if(stageIndex == currentIndex)
