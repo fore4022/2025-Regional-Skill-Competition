@@ -119,6 +119,8 @@ public class InventoryUI : MonoBehaviour
                 StartCoroutine(Managers.Game.player.P6());
 
                 break;
+            default:
+                return;
         }
 
         Managers.Game.inven.RemoveAt(index);

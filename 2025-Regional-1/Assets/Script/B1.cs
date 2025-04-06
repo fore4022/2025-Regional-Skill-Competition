@@ -27,7 +27,7 @@ public class B1 : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse1))
         {
-            gameObject.SetActive(false);
+            transform.parent.parent.gameObject.SetActive(false);
         }
     }
     private IEnumerator Set()

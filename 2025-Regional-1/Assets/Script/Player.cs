@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-
 public class Player : MonoBehaviour
 {
     public CapsuleCollider col;
@@ -60,7 +58,7 @@ public class Player : MonoBehaviour
             x = Input.GetAxisRaw("Horizontal");
         }
 
-        chara.Move(transform.forward * speed * y*  Time.deltaTime);
+        chara.Move(transform.forward * speed * (y - Managers.Game.inven.Count * 0.5f) *  Time.deltaTime);
         transform.Rotate(0, 180 * x * Time.deltaTime, 0);
 
         if (inGame)

@@ -56,7 +56,7 @@ public class B2 : MonoBehaviour
 
         if(total <= 0)
         {
-            gameObject.SetActive(false);
+            transform.parent.parent.gameObject.SetActive(false);
         }
         text.text = $"남은 점수 : {total}";
 
@@ -75,11 +75,6 @@ public class B2 : MonoBehaviour
         if(x != 0 || y != 0)
         {
             StartCoroutine(Set((int)x, (int)y));
-        }
-
-        if(Input.GetKeyDown(KeyCode.RightShift))
-        {
-            gameObject.SetActive(false);
         }
     }
     private IEnumerator Set(int x, int y)

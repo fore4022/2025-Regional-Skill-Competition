@@ -14,10 +14,6 @@ public class GameOver : MonoBehaviour
     }
     public void OnEnable()
     {
-        Managers.Game.inter.SetActive(false);
-        Managers.Game.addCoin = 0;
-        Managers.Game.sec = 0;
-
         string ss = $"Time - 00 : {(int)(Managers.Game.sec / 60):D2} : {(int)(Managers.Game.sec % 60):D2}";
 
         StartCoroutine(Util.Typeing(a, ss));
@@ -29,6 +25,13 @@ public class GameOver : MonoBehaviour
         ss = $"Add Gold + 0";
 
         StartCoroutine(Util.Typeing(c, ss));
+
+
+        Managers.Game.inter.SetActive(false);
+        Managers.Game.addCoin = 0;
+        Managers.Game.sec = 0;
+        Managers.Game.inven = new();
+
     }
     public void Over()
     {
