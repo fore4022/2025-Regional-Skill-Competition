@@ -10,10 +10,12 @@ public class GameManager
     public GameObject Log;
     public float totalCoin = 1000;
     public float totalSec = 0;
+    public float sec = 0;
     public float addCoin = 0;
     public int backSize = 4;
     public int air = 100;
     public List<int> hash = new();
+    public List<int> addhash = new();
 
     public GameObject inter;
 
@@ -27,6 +29,9 @@ public class GameManager
     public List<int> inven = new();
     public List<Valuable> vals = new();
 
+    public GameObject fail;
+    public GameObject clear;
+
     public void GameStart(int i)
     {
         currentIndex = i;
@@ -38,15 +43,24 @@ public class GameManager
     {
         inter.gameObject.SetActive(false);
 
-        if(isClear)
+        if (isClear)
         {
-            if(stageIndex == currentIndex)
+            foreach(int aa in addhash)
+            {
+                hash.Add(aa);
+            }
+
+            if (stageIndex == currentIndex)
             {
                 stageIndex++;
             }
+
+            clear.SetActive(true);
         }
         else
         {
+            addhash = new();
+            fail.SetActive(true);
 
         }
     }

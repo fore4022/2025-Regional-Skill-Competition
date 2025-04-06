@@ -38,14 +38,12 @@ public class Valuable : MonoBehaviour
             {
                 Managers.Game.player.health -= 15;
                 trapp.SetActive(true);
-                Managers.Game.hash.Add(hash);
 
                 gameObject.SetActive(false);
             }
             else if (Managers.Game.backSize > Managers.Game.inven.Count &&Input.GetKeyDown(KeyCode.F))
             {
                 Managers.Game.inven.Add(index);
-                Managers.Game.hash.Add(hash);
 
                 switch(index)
                 {
@@ -74,6 +72,7 @@ public class Valuable : MonoBehaviour
                         break;
                 }
 
+                Managers.Game.addhash.Add(hash);
                 gameObject.SetActive(false);
             }
         }

@@ -15142,7 +15142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 1354977484}
   ui: {fileID: 217197562}
-  field: {fileID: 0}
+  field: {fileID: 1530310215}
 --- !u!1 &1539551761
 GameObject:
   m_ObjectHideFlags: 0
@@ -22176,7 +22176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649664ca5efd9e344a93fa53bf31356c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 0}
   Log: {fileID: 4381794254946975654, guid: 6f1d918adcacae54989f31de1375af61, type: 3}
+  cam: {fileID: 0}
+  t1: {fileID: 0}
+  t2: {fileID: 0}
+  attack: {fileID: 0}
   p1: {fileID: 0}
   p2: {fileID: 0}
   p3: {fileID: 0}

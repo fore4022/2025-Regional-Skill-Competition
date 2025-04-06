@@ -46,15 +46,6 @@ public class Player : MonoBehaviour
         float x = 0;
         float y = 0;
 
-        if(health <= 10 || air <= 10)
-        {
-            cam.transform.SetParent(t2);
-        }
-        else
-        {
-            cam.transform.SetParent(t1);
-        }
-
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             y = Input.GetAxisRaw("Vertical");
@@ -74,6 +65,18 @@ public class Player : MonoBehaviour
 
         if (inGame)
         {
+
+            if (health <= 10 || air <= 10)
+            {
+                cam.transform.SetParent(t2);
+            }
+            else
+            {
+                cam.transform.SetParent(t1);
+            }
+
+
+            Managers.Game.sec += Time.deltaTime;
             air -= 0.75f * Time.deltaTime;
 
             if(Input.GetKeyDown(KeyCode.Mouse0))

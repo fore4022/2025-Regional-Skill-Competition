@@ -11,6 +11,7 @@ public class HPS : MonoBehaviour
     }
     void Update()
     {
-        h.value = Managers.Game.player.air / Managers.Game.air;
+        
+        h.value = Managers.Game.player.health / 100;
     }
 }

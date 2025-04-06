@@ -27,6 +27,7 @@ public class Coin : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Managers.Game.addCoin += 10;
+            Managers.Game.addhash.Add(hash);
             gameObject.SetActive(false);
         }
     }

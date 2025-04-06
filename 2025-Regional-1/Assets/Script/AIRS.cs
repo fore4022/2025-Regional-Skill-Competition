@@ -6,6 +6,6 @@ public class AIRS : MonoBehaviour
     public Slider h;
     void Update()
     {
-        h.value = Managers.Game.player.health / 100;
+        h.value = Managers.Game.player.air / Managers.Game.air;
     }
 }
