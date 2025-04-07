@@ -25,7 +25,8 @@ public class Monster : MonoBehaviour
 
             return;
         }
-        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 6)
+
+        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 6 && !Managers.Game.player.isTarget)
         {
             Vector3 distance = (Managers.Game.player.gameObject.transform.position- transform.position).normalized;
 

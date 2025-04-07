@@ -22,7 +22,7 @@ public class GameOver : MonoBehaviour
 
         StartCoroutine(Util.Typeing(b, ss));
 
-        ss = $"Add Gold + 0";
+        ss = $"Add Gold + 0 G";
 
         StartCoroutine(Util.Typeing(c, ss));
 

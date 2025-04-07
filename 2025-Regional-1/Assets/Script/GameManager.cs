@@ -8,7 +8,7 @@ public class GameManager
     public List<(string name, int time)> ranking = new();
     public Player player;
     public GameObject Log;
-    public float totalCoin = 1000;
+    public float totalCoin = 0;
     public float totalSec = 0;
     public float sec = 0;
     public float addCoin = 0;
@@ -63,8 +63,17 @@ public class GameManager
             fail.SetActive(true);
 
         }
-    }
 
+        Debug.Log(stageIndex);
+    }
+    public void Res()
+    {
+        SceneManager.LoadScene($"InGame_{currentIndex}");
+        vals = new();
+        inven = new();
+        sec = 0;
+        addCoin = 0;
+    }
     public void Send(string aaa)
     {
         GameObject go = GameObject.Instantiate(Log);

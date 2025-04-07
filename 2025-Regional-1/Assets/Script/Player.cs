@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public bool inGame = true;
     public float health;
     public float air;
+    public bool isTarget = false;
 
     public Collider att;
 
@@ -40,6 +41,11 @@ public class Player : MonoBehaviour
         air = Managers.Game.air;
 
         air -= 8 * (Managers.Game.stageIndex - 1);
+
+        if(!inGame)
+        {
+            Time.timeScale = 1;
+        }
     }
     public void Update()
     {
@@ -60,11 +66,41 @@ public class Player : MonoBehaviour
             x = Input.GetAxisRaw("Horizontal");
         }
 
-        chara.Move(transform.forward * speed * (y - Managers.Game.inven.Count * 0.5f) *  Time.deltaTime);
+        
+
+        chara.Move(transform.forward * y * (speed - Managers.Game.inven.Count * 0.5f) *  Time.deltaTime);
         transform.Rotate(0, 180 * x * Time.deltaTime, 0);
 
         if (inGame)
         {
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                health = 100;
+                air = Managers.Game.air;
+            }
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                Managers.Game.Res();
+            }
+            if(Input.GetKeyDown(KeyCode.F4))
+            {
+                if(Managers.Game.stageIndex < 5)
+                {
+                    Managers.Game.stageIndex++;
+                }
+                Managers.Game.GameStart(Managers.Game.stageIndex);
+            }
+            if(Input.GetKeyDown(KeyCode.F5))
+            {
+                if(Time.timeScale == 1)
+                {
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                }
+            }
 
             if (health <= 10 || air <= 10)
             {
@@ -162,10 +198,10 @@ public class Player : MonoBehaviour
     public IEnumerator P6()
     {
         p6.SetActive(true);
-        col.enabled = false;
 
         yield return new WaitForSeconds(0.5f);
 
+        isTarget = true;
         p6.SetActive(false);
     }
 }

@@ -121,7 +121,7 @@ public class Shop : MonoBehaviour
     }
     public void Purchase()
     {
-        if(Managers.Game.totalCoin >= aaa[index] || Input.GetKey(KeyCode.F2))
+        if((Managers.Game.totalCoin >= aaa[index] || Input.GetKey(KeyCode.F2)) && !Managers.Game.bbb[index])
         {
             if(!Input.GetKey(KeyCode.F2))
             {

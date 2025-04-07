@@ -12,7 +12,7 @@ public class RankA : MonoBehaviour
         if(index + 1 <= Managers.Game.ranking.Count)
         {
             naame.text = $"{Managers.Game.ranking[index].name}";
-            ti.text = $"00 : {Managers.Game.ranking[index].time:D2} : {Managers.Game.ranking[index].time:D2}";
+            ti.text = $"00 : {Managers.Game.ranking[index].time / 60:D2} : {Managers.Game.ranking[index].time:D2}";
         }
         else
         {

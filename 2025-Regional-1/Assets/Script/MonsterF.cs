@@ -26,7 +26,7 @@ public class MonsterF : MonoBehaviour
 
             return;
         }
-        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 2.5f)
+        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 2.5f && !Managers.Game.player.isTarget)
         {
             Vector3 distance = (Managers.Game.player.gameObject.transform.position - transform.position).normalized;
 

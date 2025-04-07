@@ -1,23 +1,25 @@
 
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 public class StageSelect : MonoBehaviour
 {
 
     public GameObject effect;
     public GameObject ui;
 
-    public InputField field;
+    public GameObject bu1;
+    public GameObject bu2;
 
     public void Start()
     {
-        field.text = Managers.Game.name;
+        if(Managers.Game.stageIndex == 1)
+        {
+            bu1.SetActive(false);
+            bu2.SetActive(false);
+        }
     }
     public void Update()
     {
-
-        Managers.Game.name = field.text;
 
         if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 18)
         {
@@ -61,17 +63,13 @@ public class StageSelect : MonoBehaviour
     }
     public void NewGame()
     {
-        Managers.Game.player.air = 100;
-        Managers.Game.totalCoin = 0;
-        Managers.Game.totalSec = 0;
-
-        for (int i = 0; i < Managers.Game.bbb.Count; i++)
-        {
-            Managers.Game.bbb[i] = false;
-        }
-
-        Managers.Game.hash = new();
-
         Managers.Game.stageIndex = 1;
+        Managers.Game.totalSec = 0;
+        Managers.Game.totalCoin = 0;
+        Managers.Game.bbb = new List<bool>() { false, false, false, false, false, false };
+        Managers.Game.vals = new();
+        Managers.Game.hash = new();
+        Managers.Game.backSize = 4;
+        Managers.Game.air = 100;
     }
 }
