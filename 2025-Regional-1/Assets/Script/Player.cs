@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public float health;
     public float air;
 
+    public Collider att;
+
     public void Awake()
     {
         Managers.Game.player = this;
@@ -80,7 +82,9 @@ public class Player : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 attack.SetActive(true);
+                att.enabled = true;
 
+                StartCoroutine(ack());
                 StartCoroutine(attackCool());
             }
 
@@ -90,6 +94,18 @@ public class Player : MonoBehaviour
                 Managers.Game.GameOver(false);
             }
         }
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("fire") || other.CompareTag("gas"))
+        {
+            health -= 9 * Time.deltaTime;
+        }
+    }
+    public IEnumerator ack()
+    {
+        yield return new WaitForSeconds(0.4f);
+        att.enabled = false;
     }
     public IEnumerator attackCool()
     {

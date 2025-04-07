@@ -1,7 +1,8 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class MonsterF : MonoBehaviour
 {
     public Animator anime;
     public float health;
@@ -25,30 +26,22 @@ public class Monster : MonoBehaviour
 
             return;
         }
-        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 6)
+        if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 2.5f)
         {
-            Vector3 distance = (Managers.Game.player.gameObject.transform.position- transform.position).normalized;
+            Vector3 distance = (Managers.Game.player.gameObject.transform.position - transform.position).normalized;
 
             transform.LookAt(Managers.Game.player.gameObject.transform);
 
-            if (Vector3.Distance(Managers.Game.player.gameObject.transform.position, transform.position) <= 2)
-            {
-                Managers.Game.player.health -= 5 * Time.deltaTime;
+            Managers.Game.player.health -= 5 * Time.deltaTime;
 
-                anime.Play("Attack");
-            }
-            else
-            {
-                anime.Play("Walk");
-                transform.position += distance * Time.deltaTime * speed;
-            }
+            anime.Play("Attack");
 
             return;
         }
 
         if (aaa)
         {
-            Vector3 distance =  (tar1.transform.position - transform.position).normalized;
+            Vector3 distance = (tar1.transform.position - transform.position).normalized;
 
             transform.LookAt(tar1.transform.position);
             transform.position += distance * Time.deltaTime * speed;
@@ -73,7 +66,7 @@ public class Monster : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("attack"))
+        if (other.CompareTag("attack"))
         {
             health -= 1;
         }
